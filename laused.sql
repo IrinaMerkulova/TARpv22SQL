@@ -52,7 +52,7 @@ select * from Person
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- Andmete lisamine 
+-- Andmete lisamine.
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
