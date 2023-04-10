@@ -180,7 +180,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--lisab andmed Department ja Employees tabelisse
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -215,12 +215,13 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---See käsk teeb päringu tabelist Vöötajad ja tagastab unikaalne veeru Name ja DepartmentID väärtuste paarid
+-- distinct kasutatakse ainult erinevate väärtuste tagastamiseks 
 select distinct Name, DepartmentId from Employees
 
----?
+--- täidab päringu tabelis Töötajad ja arvutab kõigi töötajate kogupalga
 select sum(cast(Salary as int)) from Employees
----?
+---Teostab päringu tabeli Töötajad vastu ja arvutab miinimumpalga
 select min(cast(Salary as int)) from Employees
 
 
