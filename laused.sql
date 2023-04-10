@@ -1,10 +1,10 @@
 -- db loomine
 create database Tarpv22
 
---?
+-- Andmebaasi loomine 
 DRop DataBASE Tarpv22
 
---?
+--Kustuta andmebaas
 create table Gender
 (
 Id int NOT NULL primary key,
