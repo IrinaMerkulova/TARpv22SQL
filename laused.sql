@@ -234,7 +234,7 @@ add DepartmentId
 int null
 
 
---?
+--lisa uks kirje
 alter table Employees
 add MiddleName nvarchar(30)
 
