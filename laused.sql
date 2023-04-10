@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---veeru AGE lisamine Person
 alter table Person
 add Age nvarchar(10)
 
