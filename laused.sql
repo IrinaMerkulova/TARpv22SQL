@@ -117,8 +117,8 @@ select * from Person where Email like '%@%'
 -- Toob välja kõik emailid ilma koerata,
 select * from Person where Email not like '%@%'
 
---- näitab, kelle on emailis ees ja peale @-märki
--- ainult üks täht
+--- näitab, kelle on emailis ees ja peale @-märki.
+-- ainult üks täht.
 select * from Person where Email like '_@_.com'
 
 --Näitab päringuid, mis ei alga nende tähtedega 
