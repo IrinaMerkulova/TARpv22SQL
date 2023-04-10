@@ -224,11 +224,11 @@ select sum(cast(Salary as int)) from Employees
 ---Näitab minimaale palk Employees'st
 select min(cast(Salary as int)) from Employees
 
-
+---Lisandamine uue veerd
 alter table Employees
 add City nvarchar(25)
 
-
+---Lisandamine uue veerd
 alter table Employees
 add DepartmentId
 int null
@@ -241,6 +241,7 @@ add MiddleName nvarchar(30)
 alter table Employees
 add LastName nvarchar(30)
 
+---Siseldamine andmed
 update Employees set Name = 'Tom', MiddleName = 'Nick', LastName = 'Jones'
 where Id = 1
 update Employees set Name = 'Pam', MiddleName = NULL, LastName = 'Anderson'
