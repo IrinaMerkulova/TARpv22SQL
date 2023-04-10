@@ -147,7 +147,7 @@ select sum(cast(Age as int)) from Person
 --leiab minimaalne vanus tabelist Person
 select min(cast(Age as int)) from Person
 
---?
+--leiab maximum vanus tabelist Person
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
@@ -211,7 +211,7 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---district näitab nimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
 ---?
