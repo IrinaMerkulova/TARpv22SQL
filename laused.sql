@@ -1,3 +1,4 @@
+
 -- db loomine
 create database Tarpv22
 
