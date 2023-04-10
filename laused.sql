@@ -71,7 +71,7 @@ values (8, 'Test', 'Test')
 
 ---veeru AGE lisamine Person
 alter table Person
-add Age nvarchar(10)
+add Age varchar(10)
 
 --uuendame andmeid
 update Person
@@ -126,7 +126,7 @@ select * from Person where Email not like '%@%'
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--näitab kõik nimed mis ei algu W või A või S
 select * from Person where Name like '[^WAS]%'
 --- ?
 select * from Person where (City = 'Gotham' or City = 'New York')
