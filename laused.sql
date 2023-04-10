@@ -148,7 +148,7 @@ select * from Person order by Age
 --?
 select sum(cast(Age as int)) from Person
 
---?
+--näitab miinimumvanust
 select min(cast(Age as int)) from Person
 
 --?
