@@ -134,13 +134,13 @@ and Age >= 40
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- näitab kolme esimest
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- näitab poole
 select top 50 percent * from Person
---?
+--esmalt näitab vanuse sorteerimist kasvavas järjekorras; seejärel kahanevas järjekorras
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
