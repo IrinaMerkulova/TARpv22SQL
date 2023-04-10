@@ -29,7 +29,7 @@ values (2, 'Male')
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- andmete sisestamine tabelisse
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -48,11 +48,11 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- kustutamine tblPerson_GenderId_FK
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- andmete sisestamine tabelisse
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
