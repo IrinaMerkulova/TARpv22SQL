@@ -135,7 +135,7 @@ and Age >= 40
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- Kuvab tabeli "Isik" ja kuvab 3 suurimat vanust
 select * from Person
 select top 3 Age, Name from Person
 
