@@ -220,7 +220,7 @@ select * from Employees
 ---distinct näitab bimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
----?
+---võtab palga kokku
 select sum(cast(Salary as int)) from Employees
 ---?
 select min(cast(Salary as int)) from Employees
