@@ -4,7 +4,7 @@ create database Tarpv22
 --db kustutamine
 DRop DataBASE Tarpv22
 
---?
+-- Tabelite Gender ja Person Loomine
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -25,7 +25,7 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- tabeli muutmine - võõrvõtme lisamine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
@@ -78,25 +78,26 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+--piirangu lisamine CHECK - et vanus >0 ja <150
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
+--annab vea, sest vanus ei saa olla >160
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---?
+--näitab Person tabeli sisu, kustutab id=8 ja jälle näitab tabeli sisu
 select * from Person
 go
 delete from Person where Id = 8
 go
 select * from Person
 
---- lisame veeru juurde
-alter table Person
-add City nvarchar(25)
+--- tabeline uuendamine,
+update Person SET City='Gotham'
+Where id=1
 
--- ?
+-- näitab ainult Gotham elanikud
 select * from Person where City = 'Gotham'
 
 
