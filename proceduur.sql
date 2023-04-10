@@ -38,7 +38,7 @@ spGetEmployeeCountByGender @EmplooyeeCount=1, @Gender ='Male'
 spGetEmployeeCountByGender 'Male', 3
 ---Protseduuri käivitamine
 
--- ?
+-- Protseduuri käivitamine, kui Gender=Female is 0, then "Print TotalCount is null".Else: TotalCount is not null
 declare @TotalCount int
 exec spGetEmployeeCountByGender 'Female', @TotalCount out
 if(@TotalCount = 0)
