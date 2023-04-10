@@ -115,7 +115,7 @@ Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- näitab N-tähega algavaid linnu ja @-märgiga e-kirju
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
