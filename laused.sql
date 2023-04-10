@@ -115,11 +115,11 @@ Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- algab n või ettepanekus @
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- ettepanekus @
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
