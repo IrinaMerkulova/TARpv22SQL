@@ -4,7 +4,7 @@ create database Tarpv22
 --db kustutamine
 DRop DataBASE Tarpv22
 
---?
+--tabelite Gender ja Person loomine
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -25,11 +25,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- tabeli muutmine - võõrvõtme lisamine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- loomine values
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -48,11 +48,11 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- tabeli Person muutmine ja tabeli kustutamine
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- loomine Gender
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---tabeli muutmine ja loomine Age
 alter table Person
 add Age nvarchar(10)
 
@@ -78,7 +78,7 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+--muutmine tabeli Person ja loomine constraint to check age
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
