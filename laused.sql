@@ -141,7 +141,7 @@ select top 3 Age, Name from Person
 
 --- ?
 select top 50 percent * from Person
---?
+--näitab sorteerimist nime järgi
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
