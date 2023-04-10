@@ -210,7 +210,8 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
--- See käsk teeb päringu tabelist "Töötajad" ja tagastab unikaalsed veeru "Name" ja "DepartmentId" väärtuste paarid.
+-- See käsk teeb päringu tabelist "Töötajad" ja tagastab unikaalsed veeru "Name" ja "DepartmentId" väärtuste paarid
+-- Operaatorit "DISTINCT" kasutatakse dubleerivate ridade eemaldamiseks päringu tulemusest
 select distinct Name, DepartmentId from Employees
 
 ---?
