@@ -150,7 +150,7 @@ select sum(cast(Age as int)) from Person
 -- Valib minimaalse vanuse väärtuse
 select min(cast(Age as int)) from Person
 
--- 
+-- Valib maksimaalse vanuse väärtuse
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
