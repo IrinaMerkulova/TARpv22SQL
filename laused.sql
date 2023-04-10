@@ -147,10 +147,10 @@ select * from Person order by Age
 -- Võtab kokku kõigi kangelaste vanuse ja kuvab selle eraldi veerus
 select sum(cast(Age as int)) from Person
 
---?
+-- Valib minimaalse vanuse väärtuse
 select min(cast(Age as int)) from Person
 
---?
+-- 
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
