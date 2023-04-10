@@ -97,8 +97,8 @@ alter table Person
 add City nvarchar(25)
 
 --UPDATE
-update Person SET City='Natlan'
-WHERE id=6
+update Person SET City='New York'
+WHERE id=4
 
 -- kõik, kes elavad Gothamis
 select * from Person where City = 'Gotham'
@@ -107,6 +107,10 @@ select * from Person where City = 'Gotham'
 -- kõik, kes ei ela Gothamis
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
+
+--UPDATE
+update Person SET Age=25
+WHERE id=7
 
 -- näidata inimesi, kelle vanus on 100, 50 ja 20 aastat.
 select *from Person where Age = 100 or 
@@ -127,18 +131,18 @@ select * from Person where Email like '_@_.com'
 
 --?
 select * from Person where Name like '[^WAS]%'
---- ?
+--- Näita inimesi, kes elavad Gothamis või New Yorgis ja on üle 40 aasta vanad.
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- Näita kõiki, näita esimese 3 inimese nimi ja vanus
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- Näita esimesed 50 protsenti
 select top 50 percent * from Person
 --?
 select * from Person order by cast(Age as int)
