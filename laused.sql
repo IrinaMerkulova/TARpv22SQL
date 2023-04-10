@@ -147,13 +147,13 @@ select top 50 percent * from Person
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
----- leiab summarne vanus tabelist Person
+--- leiab summarne vanus tabelist Person
 select sum(cast(Age as int)) from Person
 
----- leiab minimalne vanus tabelist Person
+--- leiab minimalne vanus tabelist Person
 select min(cast(Age as int)) from Person
 
---?
+--- leiab maximalne vanus tabelist Person
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
