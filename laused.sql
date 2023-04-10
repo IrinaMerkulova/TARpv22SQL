@@ -137,9 +137,11 @@ select top 3 * from Person
 
 --- võtab kolm esimest rida
 select * from Person
+
+---näitab top 3 vanuse järgi
 select top 3 Age, Name from Person
 
---- Näitab top 3 vanuse järgi
+--- näitab 50% inimestest
 select top 50 percent * from Person
 --?
 select * from Person order by cast(Age as int)
