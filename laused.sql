@@ -279,6 +279,10 @@ from Employees
 
 select * from Employees
 select * from Department
+select *
+from Employees
+where Id = 1;
+
 
 
 
