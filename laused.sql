@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---lisa uks veeru
 alter table Person
 add Age nvarchar(10)
 
@@ -78,7 +78,7 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+--kontrolli lisamine
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
@@ -96,7 +96,12 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+
+--Tabeli uuendamine
+update Person SET City='Gotham'
+WHERE Id=2
+
+-- kõik, kes ela Gothamis
 select * from Person where City = 'Gotham'
 
 
@@ -104,7 +109,7 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- naitab personid kes on 100,50 või 20 aastat vana
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
