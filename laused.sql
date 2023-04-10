@@ -67,10 +67,11 @@ default 3 for GenderId
 select * from Person
 select * from Gender
 
+--- sisestab andmed Person tabelise 
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+--- muudab Person tabeli, lisab Age 
 alter table Person
 add Age nvarchar(10)
 
@@ -79,7 +80,7 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+-- lisab piraangu CHECK - et vanus >0 ja <150
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
@@ -97,7 +98,12 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+
+---tabeli uuendamine
+UPDATE Person SET City='Gotham'
+WHERE id=1
+
+-- näitab ainult Gotham elanikud
 select * from Person where City = 'Gotham'
 
 
