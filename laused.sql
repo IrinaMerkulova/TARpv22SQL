@@ -130,7 +130,7 @@ and Age >= 40
 ---võtab kolm esimest rida.
 select top 3 * from Person
 
---- Toob top 3 vanuse järgi
+--- Toob top 3 vanuse järgi.
 select * from Person
 select top 3 Age, Name from Person
 
