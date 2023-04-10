@@ -139,7 +139,7 @@ select top 3 * from Person
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- näitab 50 protsenti andmetest
 select top 50 percent * from Person
 --näitab sorteerimist nime järgi
 select * from Person order by cast(Age as int)
