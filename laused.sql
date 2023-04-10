@@ -104,7 +104,7 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näidata inimesi, kelle vanus on 100, 50 ja 20 aastat.
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
