@@ -74,16 +74,16 @@ declare @FirstName nvarchar(50)
 execute spGetNameById1 6, @FirstName output
 print 'Name of the employee = ' + @FirstName
 
---?
-create proc spGetNameById2
+--küsib ID ja näitab Eesnimi ID järgi (
+create proc spGetNameById3
 @Id int
 as begin
-	return (select FirstName from Employees where Id = @Id)
+	select FirstName from Employees where Id = @Id
 end
 
 -- ?
 declare @EmployeeName nvarchar(50)
-exec @EmployeeName = spGetNameById2 1
+exec @EmployeeName = spGetNameById3 1
 print 'Name of the employee = ' + @EmployeeName
 
 select * from Employees
