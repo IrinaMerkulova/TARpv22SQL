@@ -189,7 +189,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--täindab tabel
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -227,12 +227,12 @@ select * from Employees
 ---distinct näitab nimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
----?
+---leib summarne Salary tabelis Employees
 select sum(cast(Salary as int)) from Employees
----?
+---leib minimaakne Salary tabelis Employees
 select min(cast(Salary as int)) from Employees
 
-
+--lisab uus tabel MiddleName, LastName, City ja deportament
 alter table Employees
 add City nvarchar(25)
 
@@ -242,13 +242,15 @@ add DepartmentId
 int null
 
 
---?
+--lisab uus tabel Middleneme
 alter table Employees
 add MiddleName nvarchar(30)
 
+--lisab uus tabel LastName
 alter table Employees
 add LastName nvarchar(30)
 
+--uuendab Employees nimed
 update Employees set FirstName = 'Tom', MiddleName = 'Nick', LastName = 'Jones'
 where Id = 1
 update Employees set FirstName = 'Pam', MiddleName = NULL, LastName = 'Anderson'
