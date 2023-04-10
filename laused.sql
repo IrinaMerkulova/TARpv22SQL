@@ -4,7 +4,7 @@ create database Tarpv22
 -- db kustutamine
 DRop DataBASE Tarpv22
 
---?
+-- loob tabeli Gender ja Person nimega ja oma parametremiga
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -25,11 +25,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- sekundaarne võti lisamine tabelise Person
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- Andmete sisestamine Person tabelise
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -48,13 +48,14 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- kustutab sekundaarne võti Person tabelist
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- lisab andmed Gender tabelise
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
+
 -- lisame võõrvõtme uuesti
 alter table Person
 add constraint DF_Person_GenderId
