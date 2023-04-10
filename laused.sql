@@ -4,7 +4,7 @@ create database Tarpv22
 --kustutab db
 DRop DataBASE Tarpv22
 
---?
+--tabelite gender ja Person loomine
 create table Gender
 (
 Id int NOT NULL primary key,
