@@ -149,19 +149,20 @@ select top 3 Age, Name from Person
 --- näitab top 50% inimest
 select top 50 percent * from Person
 
---näitab inimesid kellel on endmetüüp on int
+--näitab inimesid kellel on Age endmetüüp on int
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---näitab age summa
+--cast - teiseldab int andmetüüpiks ja leiab summarne vanus
 select sum(cast(Age as int)) from Person
 
---?
+--cast - teiseldab int andmetüüpiks ja leiab min vanus
 select min(cast(Age as int)) from Person
 
---?
+--cast - teiseldab int andmetüüpiks ja leiab max vanus
 select max(cast(Age as int)) from Person
 
+--leiab summarne vanus linnade pärast
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
 
 
@@ -223,7 +224,7 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---distinct näitab nimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
 ---?
