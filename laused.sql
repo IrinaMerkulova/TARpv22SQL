@@ -146,9 +146,10 @@ select * from Person order by cast(Age as int)
 select * from Person order by Age
 
 -- cast - teiseldab int andmetüüpiks
+-- leiab summarne vanus
 select sum(cast(Age as int)) from Person
 
---?
+-- 
 select min(cast(Age as int)) from Person
 
 --?
