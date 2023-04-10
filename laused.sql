@@ -49,7 +49,7 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 select * from Person
 
 --- piirangu lisamine CHECK - et vanus >0 ja <150
----annsb vea sest vanus ei saa olla rohkem kui 160
+---annab vea sest vanus ei saa olla rohkem kui 160
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
