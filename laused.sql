@@ -270,6 +270,3 @@ from Employees
 
 select * from Employees
 select * from Department
-
-
-
