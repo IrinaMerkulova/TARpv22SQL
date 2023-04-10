@@ -138,13 +138,14 @@ select top 3 * from Person
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- näitab 50% kõigist saadaolevatest inimestest
 select top 50 percent * from Person
---?
+--näitab
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+-- cast - teiseldab int andmetüüpiks
+-- sumiret teisendati tabelist igas vanuses int
 select sum(cast(Age as int)) from Person
 
 --?
