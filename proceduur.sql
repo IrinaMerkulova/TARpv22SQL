@@ -10,7 +10,7 @@ spGetEmployees
 exec spGetEmployees
 execute spGetEmployees
 
---- 
+--- küsib Gender ja DepartmentID ning kuvab
 create proc spGetEmployeesByGenderAndDepartment
 @Gender nvarchar(20),
 @DepartmentId int
