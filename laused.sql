@@ -98,7 +98,7 @@ add City varchar(25)
 
 --- Update Tabeli uuendamine
 update Person SET City = 'Gotham'
-Where id=7
+Where id=3
 
 
 -- ?
@@ -109,7 +109,7 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näitab inimesed vanusega 100 või 50 või 20 aastat vana
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
