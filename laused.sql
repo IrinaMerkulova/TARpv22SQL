@@ -215,7 +215,7 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---kustuta duplikatid
 select distinct Name, DepartmentId from Employees
 
 ---?
