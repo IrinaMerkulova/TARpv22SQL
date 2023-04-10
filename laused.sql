@@ -1,10 +1,10 @@
--- db loomine
+-- DB loomine
 create database Tarpv22
 
--- db kustutamine
+-- DB kustutamine
 Drop DataBASE Tarpv22
 
--- tabelite Gender ja Person loomine
+-- Tabelite Gender ja Person loomine
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -19,17 +19,17 @@ Email nvarchar(30),
 GenderId int
 )
 
---- andmete sisestamine tabelisse
+--- Andmete sisestamine tabelisse
 insert into Gender (Id, Gender)
 values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- tabeli muutmine - võõrvõtme lisamine
+--- Tabeli muutmine - võõrvõtme lisamine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- laudade täitmine
+-- Laudade täitmine
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -45,17 +45,17 @@ values (6, 'Antman', 'ant"ant.com', 2)
 insert into Person (Id, Name, Email, GenderId)
 values (7, 'Spiderman', 'spider@spiderman.com', 2)
 
--- vaatame tabeli andmeid
+-- Vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- Uutmistabeli lisamine ja teisese võtme eemaldamine
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- Lisades tundmatu soo
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
--- lisame võõrvõtme uuesti
+-- Lisame võõrvõtme uuesti
 alter table Person
 add constraint DF_Person_GenderId
 default 3 for GenderId
@@ -69,11 +69,11 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+--- Age veeru lisamine
 alter table Person
 add Age nvarchar(10)
 
---uuendame andmeid
+-- Uuendame andmeid id 8 järgi
 update Person
 set Age = 149
 where Id = 8
@@ -85,7 +85,7 @@ add constraint CK_Person_Age check (Age > 0 and Age < 150)
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---?
+-- Näitab Person tabeli sisu, kustutab id=8 ja jälle näitab tabeli sisu
 select * from Person
 go
 delete from Person where Id = 8
