@@ -10,7 +10,7 @@ spGetEmployees
 exec spGetEmployees
 execute spGetEmployees
 
----? küsib gender ja departmentID ning kuvab andmed tabelist
+--- küsib gender ja departmentID ning kuvab andmed tabelist
 create proc spGetEmployeesByGenderAndDepartment
 @Gender nvarchar(20),
 @DepartmentId int
@@ -35,7 +35,7 @@ as begin
 end
 
 -- protseduri käivitamine, juhul kui töötajate arv=0 >> "is null", juhul kui ei võtdu null >> "is not null"
-declare @TotalCount int
+declare @TotalCount int spGetEmployeeCountByGender
 exec spGetEmployeeCountByGender 'Female', @TotalCount out
 if(@TotalCount = 0)
 	print '@TotalCount is null'
@@ -72,14 +72,14 @@ declare @FirstName nvarchar(50)
 execute spGetNameById1 6, @FirstName output
 print 'Name of the employee = ' + @FirstName
 
---?
+--küsib ID ja näitab Eesnimi ID järgi
 create proc spGetNameById2
 @Id int
 as begin
 	select FirstName from Employees where Id = @Id
 end
 
--- ?
+-- 
 declare @EmployeeName nvarchar(50)
 exec @EmployeeName = spGetNameById2 1
 print 'Name of the employee = ' + @EmployeeName
