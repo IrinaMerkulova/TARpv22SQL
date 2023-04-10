@@ -139,19 +139,19 @@ select top 3 * from Person
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- nätab 50% kõigidest inimestest
 select top 50 percent * from Person
 --?
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---näitab minimaalne summ
+--näitab  summarne vanus tabelis Person
 select sum(cast(Age as int)) from Person
 
---
+--näitab minimalne vanus
 select min(cast(Age as int)) from Person
 
---?
+--näitab maksimalne vanus
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
@@ -215,12 +215,12 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---distinct näitab nimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
----?
+---Naitab summ
 select sum(cast(Salary as int)) from Employees
----?
+---Näitab minimalne
 select min(cast(Salary as int)) from Employees
 
 
@@ -233,7 +233,7 @@ add DepartmentId
 int null
 
 
---?
+--Lisab tablis employees MiddleName
 alter table Employees
 add MiddleName nvarchar(30)
 
