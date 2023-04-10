@@ -126,16 +126,16 @@ select * from Person where Email not like '%@%'
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--näitab kõik nimed mis ei alga W või A või S
 select * from Person where Name like '[^WAS]%'
---- ?
+--- näitab city 'Gotham' või 'New York' ja age >=40
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+---näitab kolm esimest rida vastavalt vanusele
 select * from Person
 select top 3 Age, Name from Person
 
