@@ -109,17 +109,17 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+--näitab inimest vanusega 100 või 50 või 20
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+---näitab city kus on 'n%', näitab Email kus on täht '%@%'
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+--näitab Email kus on pole '%@%'
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
