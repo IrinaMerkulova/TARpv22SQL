@@ -112,17 +112,17 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
-select *from Person where Age = 100 or 
+-- näitab inimesed Person tabelist kelle vanus on 100, 50 või 20
+select * from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- näitab andmed Person tabelist, kus City on n algustähega või Email siseldab @
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- näitab andmed Person tabelist, kus Email ei sisalda @
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
@@ -131,6 +131,7 @@ select * from Person where Email like '_@_.com'
 
 --?
 select * from Person where Name like '[^WAS]%'
+
 --- ?
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
