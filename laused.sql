@@ -211,7 +211,7 @@ values (10, 'Russell', 'Male', 8800, NULL)
 select * from Employees
 
 -- See käsk teeb päringu tabelist "Töötajad" ja tagastab unikaalsed veeru "Name" ja "DepartmentId" väärtuste paarid
--- Operaatorit "DISTINCT" kasutatakse dubleerivate ridade eemaldamiseks päringu tulemusest
+-- Operaatorit "DISTINCT" Näitab nimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
 -- täidab päringu tabelis "Töötajad" ja arvutab kõigi töötajate kogupalga
