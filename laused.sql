@@ -165,6 +165,7 @@ select City, sum(cast(Age as int)) as TotalAge from Person group by City
 
 --- loome uued tabelid
 create table Department
+
 (
 Id int primary key,
 DepartmentName nvarchar(50),
@@ -181,7 +182,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -216,12 +217,12 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---näitab välju ilma kordusteta ja sorteerib järjekorras tabelisse Employees
 select distinct Name, DepartmentId from Employees
 
----?
+---näitab kogu palk Employees tabelisse
 select sum(cast(Salary as int)) from Employees
----?
+---näitab min palk Employees tabelisse
 select min(cast(Salary as int)) from Employees
 
 
@@ -232,12 +233,13 @@ add City nvarchar(25)
 alter table Employees
 add DepartmentId
 int null
-
-
---?
+--lisa FirstName
+alter table Employees
+add FirstName nvarchar(30)
+--lisa middleName
 alter table Employees
 add MiddleName nvarchar(30)
-
+--lisa Lastname
 alter table Employees
 add LastName nvarchar(30)
 
