@@ -140,7 +140,7 @@ select top 3 Age, Name from Person
 
 --- näitab 50% kõigist saadaolevatest inimestest
 select top 50 percent * from Person
---näitab
+--näitab vanuse järgi sorteeritud tabelit
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
@@ -148,10 +148,10 @@ select * from Person order by Age
 -- sumiret teisendati tabelist igas vanuses int
 select sum(cast(Age as int)) from Person
 
---?
+-- näitab minimaalset vanust
 select min(cast(Age as int)) from Person
 
---?
+-- näaitb maksimaalset ja summeeritud vanust linnades
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
