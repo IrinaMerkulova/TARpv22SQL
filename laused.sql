@@ -92,7 +92,7 @@ delete from Person where Id = 8
 go
 select * from Person
 
---- lisame veeru juurde
+--- piirangu lisamine
 alter table Person
 add City nvarchar(25)
 
