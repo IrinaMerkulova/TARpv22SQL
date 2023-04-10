@@ -85,7 +85,7 @@ add constraint CK_Person_Age check (Age > 0 and Age < 150)
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---?
+--näitab Person tabeli sisu, kustutab id=8 ja jälle näitab tabeli sisu
 select * from Person
 go
 delete from Person where Id = 8
