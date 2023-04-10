@@ -59,24 +59,24 @@ declare @TotalEmployees int
 execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
---- ?
+-- küsib id ja näitab töötaja nime
 create proc spGetNameById1
 @Id int,
-@FirstName nvarchar(50) output
+@Name nvarchar(50) output
 as begin
-	select @FirstName = FirstName from employees where Id = @Id
+	select @Name = Name from employees where Id = @Id
 end
 
 --?
-declare @FirstName nvarchar(50)
-execute spGetNameById1 6, @FirstName output
-print 'Name of the employee = ' + @FirstName
+declare @Name nvarchar(50)
+execute spGetNameById1 6, @Name output
+print 'Name of the employee = ' + @Name
 
 --?
 create proc spGetNameById2
 @Id int
 as begin
-	return (select FirstName from Employees where Id = @Id)
+	return (select Name from Employees where Id = @Id)
 end
 
 -- ?
