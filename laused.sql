@@ -218,7 +218,7 @@ select * from Employees
 ---kustuta duplikatid
 select distinct Name, DepartmentId from Employees
 
----?
+---leiab summarne palk tabelist Employees
 select sum(cast(Salary as int)) from Employees
 ---?
 select min(cast(Salary as int)) from Employees
