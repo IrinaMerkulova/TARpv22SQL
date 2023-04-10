@@ -146,7 +146,7 @@ select sum(cast(Age as int)) from Person
 --näitab minimaalse vanus
 select min(cast(Age as int)) from Person
 
---?
+--näitab maksimaalne vanus
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
