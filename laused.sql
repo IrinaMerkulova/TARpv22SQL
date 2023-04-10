@@ -120,27 +120,29 @@ Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+-- selle sümboliga algavate linnade näitamine nimes
 select * from Person where City like 'n%'
+-- e-kirjade näitab @-ga nimes
 select * from Person where Email like '%@%'
 
--- ?
+-- ei näita nimesid @
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--näitab kõik nimed mis ei alga W või A või S
 select * from Person where Name like '[^WAS]%'
---- ?
+
+--- näitab inimesi kes on gothamis või new yorkis ja kellel on vanus >40
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- näitab top 3 vanust ja nimi 
 select * from Person
 select top 3 Age, Name from Person
 
