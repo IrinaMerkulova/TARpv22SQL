@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----Lisab veeru
+---Lisab veeru Age
 alter table Person
 add Age nvarchar(10)
 
@@ -96,7 +96,11 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+--tabeli uuendamine
+update Person SET Cuty='Gothman'
+WHERE id=1
+
+-- näitab ainult Gotham elanikud
 select * from Person where City = 'Gotham'
 
 
