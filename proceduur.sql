@@ -5,12 +5,12 @@ create procedure spGetEmployees
 as begin
 	select FirstName, Gender from Employees
 end
-
+---protseduuri käivitamine
 spGetEmployees
 exec spGetEmployees
 execute spGetEmployees
 
---- 
+--- küsib Gender ja DepartmentID ning kuvab andmed tabelist
 create proc spGetEmployeesByGenderAndDepartment
 @Gender nvarchar(20),
 @DepartmentId int
@@ -26,7 +26,7 @@ spGetEmployeesByGenderAndDepartment @DepartmentId =  1, @Gender = 'Male'
 
 
 
---?
+--küsib gender ja arvutab arvu ID järgi
 create proc spGetEmployeeCountByGender
 @Gender nvarchar(20),
 @EmployeeCount int output
@@ -34,7 +34,9 @@ as begin
 	select @EmployeeCount = count(Id) from Employees where Gender = @Gender
 end
 
--- ?
+-- protseduuri käivitamine,
+--Juhul kui tõõtajate arv=0 >> "is null"
+--Juhul kui ei võtdu null >> "is not null"
 declare @TotalCount int
 exec spGetEmployeeCountByGender 'Female', @TotalCount out
 if(@TotalCount = 0)
@@ -48,7 +50,7 @@ declare @TotalCount int
 exec spGetEmployeeCountByGender @EmployeeCount = @TotalCount out, @Gender = 'Male'
 print @TotalCount
 
----?
+---arvutab tõõtajate arv ja annab nimea @Totalcount
 create proc spTotalCount2
 @TotalCount int output
 as begin
@@ -59,7 +61,7 @@ declare @TotalEmployees int
 execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
---- ?
+---küsib ID, ja näitab Eesnimi ID järgi
 create proc spGetNameById1
 @Id int,
 @FirstName nvarchar(50) output
@@ -67,19 +69,19 @@ as begin
 	select @FirstName = FirstName from employees where Id = @Id
 end
 
---?
+--proc käivitamine
 declare @FirstName nvarchar(50)
 execute spGetNameById1 6, @FirstName output
 print 'Name of the employee = ' + @FirstName
 
---?
+--küsib ID
 create proc spGetNameById2
 @Id int
 as begin
-	return (select FirstName from Employees where Id = @Id)
+	select FirstName from Employees where Id = @Id
 end
 
--- ?
+-- proc käivitamine
 declare @EmployeeName nvarchar(50)
 exec @EmployeeName = spGetNameById2 1
 print 'Name of the employee = ' + @EmployeeName
