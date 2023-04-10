@@ -135,23 +135,23 @@ and Age >= 40
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- Näitab top 3 vanuse järgi
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- võtab 50 protsenti esimest
 select top 50 percent * from Person
---?
+--Sorteeri vanuse järgi
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+--cast - teiseldab int andmetüüpiks, näitab vanused summ
 select sum(cast(Age as int)) from Person
 
---?
+--näitab minimaale vanus
 select min(cast(Age as int)) from Person
 
---?
+--näitab maksimaalne vanus
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
