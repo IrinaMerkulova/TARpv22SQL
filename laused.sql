@@ -1,10 +1,10 @@
 -- db loomine
 create database Tarpv22
 
---?
+--deleting a database
 DRop DataBASE Tarpv22
 
---?
+-- table creation Gender
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -108,7 +108,7 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näitab inimesed vanusega 100 või 50 või 20
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
