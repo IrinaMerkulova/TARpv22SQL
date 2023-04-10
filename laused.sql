@@ -148,7 +148,7 @@ select min(cast(Age as int)) from Person
 
 --näitab maksimaalne vanus
 select max(cast(Age as int)) from Person
-
+-- näitab Linnad ja kokku võtab kõik inimese vanus kes elab nende linnad.
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
 
 
