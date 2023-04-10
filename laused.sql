@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---gender ja aperson tabeli kuvamine ja andmete lisamine Person tabelise
 alter table Person
 add Age nvarchar(10)
 
@@ -78,14 +78,14 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+-- Värskendab tabelit Person ja muudab andmeid
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---?
+-- Lisage reeglit, mis piirab vanust 0 kuni 150 ja selle reegli testimine, proovides sisestada andmeid vanusega 160
 select * from Person
 go
 delete from Person where Id = 8
@@ -96,7 +96,7 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+-- Valja City lisamine tabelise Person 
 select * from Person where City = 'Gotham'
 
 
