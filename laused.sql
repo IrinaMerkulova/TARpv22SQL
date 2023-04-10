@@ -1,10 +1,10 @@
--- db loomine
+-- db loominee
 create database Tarpv22
 
--- Andmebaasi loomine 
-DRop DataBASE Tarpv22
+--db kustutamine
+Drop DataBASE Tarpv22
 
---Kustuta andmebaas
+--tabelite gender ja loomine
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -25,11 +25,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- Andmete lisamine tabelisse Gender
+--- tabeli muutminevõõtvõme lisamine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- Tabeli person muutmine - jaoks võõrvõtme loomine
+-- ridade lisamine tabelisse
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -48,11 +48,11 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- Tabeli kuvamine ekraanil
+--- kustutada veerg
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- Eemaidab piirangu
+-- lisa uks kirje
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----gender ja aperson tabeli kuvamine ja andmete lisamine Person tabelise
+---lisa uks veeru
 alter table Person
 add Age nvarchar(10)
 
@@ -78,14 +78,14 @@ update Person
 set Age = 149
 where Id = 8
 
--- Värskendab tabelit Person ja muudab andmeid
+--kontrolli lisamine
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
--- Lisage reeglit, mis piirab vanust 0 kuni 150 ja selle reegli testimine, proovides sisestada andmeid vanusega 160
+--näitab Person tabeli sisu, kustutab id=8 ja jälle tabeli sisu
 select * from Person
 go
 delete from Person where Id = 8
@@ -96,7 +96,12 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- Valja City lisamine tabelise Person 
+
+--Tabeli uuendamine
+update Person SET City='Gotham'
+WHERE Id=2
+
+-- kõik, kes ela Gothamis
 select * from Person where City = 'Gotham'
 
 
@@ -104,17 +109,17 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- naitab personid kes on 100,50 või 20 aastat vana
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- Näitab 
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- Näitab personid kus emailides ei ole @
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
@@ -263,6 +268,4 @@ from Employees
 
 select * from Employees
 select * from Department
-
-
 
