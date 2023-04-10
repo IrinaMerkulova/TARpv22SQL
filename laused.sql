@@ -140,7 +140,7 @@ select top 3 Age, Name from Person
 
 -- Näitab ridade ülemist poolt
 select top 50 percent * from Person
---?
+-- Tagastab kõik tabeliread, mis on järjestatud kasvavas järjekorras veeru "Vanus" väärtuse järgi, teise sorteerib vanuse järgi
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
