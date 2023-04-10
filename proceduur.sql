@@ -3,19 +3,19 @@
 --- loome stored procedure, mis kuvab vaate
 create procedure spGetEmployees
 as begin
-	select FirstName, Gender from Employees
+	select Name, Gender from Employees
 end
 
 spGetEmployees
 exec spGetEmployees
 execute spGetEmployees
 
---- 
+--- küsib Gender ja DepartmentID ning kuvab andme tabelist
 create proc spGetEmployeesByGenderAndDepartment
 @Gender nvarchar(20),
 @DepartmentId int
 as begin
-	select FirstName, Gender, DepartmentId from Employees where Gender = @Gender
+	select Name, Gender, DepartmentId from Employees where Gender = @Gender
 	and DepartmentId = @DepartmentId
 end
 
@@ -64,7 +64,7 @@ create proc spGetNameById1
 @Id int,
 @FirstName nvarchar(50) output
 as begin
-	select @FirstName = FirstName from employees where Id = @Id
+	select @FirstName = Name from employees where Id = @Id
 end
 
 --?
@@ -76,7 +76,7 @@ print 'Name of the employee = ' + @FirstName
 create proc spGetNameById2
 @Id int
 as begin
-	return (select FirstName from Employees where Id = @Id)
+	return (select Name from Employees where Id = @Id)
 end
 
 -- ?
