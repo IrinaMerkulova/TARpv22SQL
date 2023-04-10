@@ -96,7 +96,7 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- Saada kõik väärtused linnaga "Gotham"
+-- Saada kõik väärtused linnaga "Gotham".
 select * from Person where City = 'Gotham'
 
 
