@@ -174,7 +174,7 @@ DepartmentHead nvarchar(50)
 create table Employees
 (
 Id int primary key,
-Name nvarchar(50),
+FirstName nvarchar(50),
 Gender nvarchar(10),
 Salary nvarchar(50),
 DepartmentId int
@@ -235,6 +235,7 @@ int null
 
 
 --?
+Lisab  uut veergu ja täidab need
 alter table Employees
 add MiddleName nvarchar(30)
 
