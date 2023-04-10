@@ -143,19 +143,20 @@ select top 3 * from Person
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- näitab pool andmed Person tabelist 
 select top 50 percent * from Person
---?
+
+-- sorteerib tabeli Person vastavalt Age veergu
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+-- arvutab vanus Person tabelis
 select sum(cast(Age as int)) from Person
 
---?
+--näitab minimaalne arv Person tabelis
 select min(cast(Age as int)) from Person
 
---?
+--näitab maksimaalne arv Person tabelis
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
