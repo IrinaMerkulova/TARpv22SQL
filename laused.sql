@@ -25,7 +25,7 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
----?
+---tabeli muutmine - võõrvõtme lisamine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
@@ -96,7 +96,12 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+--UPDATE 
+UPDATE Person Set City='Gotham'
+Where Id=1
+
+
+-- näitab ainult Gotham elanikud
 select * from Person where City = 'Gotham'
 
 
