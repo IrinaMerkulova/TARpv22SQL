@@ -61,7 +61,7 @@ declare @TotalEmployees int
 execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
---- ?
+--- küsib ID ja näitab eesnimi ID järgi
 create proc spGetNameById1
 @Id int,
 @FirstName nvarchar(50) output
@@ -69,7 +69,7 @@ as begin
 	select @FirstName = Name from employees where Id = @Id
 end
 
---?
+--protseduuri käivitamine
 declare @FirstName nvarchar(50)
 execute spGetNameById1 6, @FirstName output
 print 'Name of the employee = ' + @FirstName
