@@ -78,10 +78,10 @@ update Person
 set Age = 149
 where Id = 8
 
---muutmine tabeli Person ja loomine constraint to check age
+--piirangu lisamine CHECK - et vanus >0 ja <150
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
-
+--annab vea,sest vanus ei saa olla >160
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
@@ -96,15 +96,18 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
-select * from Person where City = 'Gotham'
+--tabeli uuendamine
+update Person SET City='Gotham'
+WHERE id=1
 
+-- näitab ainult Gotham elanikud
+select * from Person where City = 'Gotham'
 
 -- kõik, kes ei ela Gothamis
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näitab inimesed vanusega 100 või 50 või 20
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
