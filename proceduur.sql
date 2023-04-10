@@ -59,7 +59,7 @@ declare @TotalEmployees int
 execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
---- ?
+--- küsib id; ja näiteb Eesnimi ID järgi
 create proc spGetNameById1
 @Id int,
 @FirstName nvarchar(50) output
