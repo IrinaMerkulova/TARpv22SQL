@@ -1,11 +1,9 @@
-
-
 --- loome stored procedure, mis kuvab vaate
 create procedure spGetEmployees
 as begin
-	select FirstName, Gender from Employees
+	select Name, Gender from Employees
 end
-
+---protseduuri käivitamine
 spGetEmployees
 exec spGetEmployees
 execute spGetEmployees
@@ -50,7 +48,7 @@ declare @TotalCount int
 exec spGetEmployeeCountByGender @EmployeeCount = @TotalCount out, @Gender = 'Male'
 print @TotalCount
 
----?
+---arvutab tõõtajate arv ja annab nime @totalcount
 create proc spTotalCount2
 @TotalCount int output
 as begin
