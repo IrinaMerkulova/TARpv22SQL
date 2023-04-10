@@ -50,7 +50,8 @@ declare @TotalCount int
 exec spGetEmployeeCountByGender @EmployeeCount = @TotalCount out, @Gender = 'Male'
 print @TotalCount
 
----?
+
+--- arvutab tõõtajate arv ja annab nime @totalcount
 create proc spTotalCount2
 @TotalCount int output
 as begin
@@ -61,7 +62,8 @@ declare @TotalEmployees int
 execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
---- ?
+
+--- kusib id ja naita eesnimi
 create proc spGetNameById1
 @Id int,
 @FirstName nvarchar(50) output
@@ -74,16 +76,16 @@ declare @FirstName nvarchar(50)
 execute spGetNameById1 6, @FirstName output
 print 'Name of the employee = ' + @FirstName
 
---?
-create proc spGetNameById2
+--kusib id ja naita eesnimi
+create proc spGetNameById3
 @Id int
 as begin
-	return (select FirstName from Employees where Id = @Id)
+	select FirstName from Employees where Id = @Id
 end
 
 -- ?
 declare @EmployeeName nvarchar(50)
-exec @EmployeeName = spGetNameById2 1
+exec @EmployeeName = spGetNameById3 1
 print 'Name of the employee = ' + @EmployeeName
 
 select * from Employees
