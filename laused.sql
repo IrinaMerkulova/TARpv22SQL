@@ -185,7 +185,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--sisestab andmed Department veergu 
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -220,12 +220,13 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---distinct näitab nimed ainult 1 kord, sorteerib nimi kasvavalt 
 select distinct Name, DepartmentId from Employees
 
----?
+--- näitab kogu palk Employees tabelist
 select sum(cast(Salary as int)) from Employees
----?
+
+---näitab minimaalne palk Employees tabelist
 select min(cast(Salary as int)) from Employees
 
 
