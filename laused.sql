@@ -75,8 +75,8 @@ add Age varchar(10)
 
 --uuendame andmeid
 update Person
-set Age = 149
-where Id = 8
+set Age = 245
+where Id = 5
 
 --piirangu lisamine CHECK - et vanus >0 ja <150
 alter table Person
@@ -147,13 +147,13 @@ select * from Person order by Age
 
 -- cast - teiseldab int andmetüüpiks
 
---?
+--leiab summarne vanus tabelist Person
 select sum(cast(Age as int)) from Person
 
---näitab miinimumvanust
+--näitab miinimumvanust tabelist Person
 select min(cast(Age as int)) from Person
 
---näitab maksimaalset vanust
+--näitab maksimaalset vanust tabelist Person
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
