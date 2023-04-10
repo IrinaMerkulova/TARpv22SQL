@@ -113,43 +113,43 @@ Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- näitab kõik linnad mis alga n ja kõik emaili mis alga @
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- näitab kõik inimesed emaili mis alga @
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--näitab kõik nimed mis ei alga W või A või S
 select * from Person where Name like '[^WAS]%'
---- ?
+--- näitab kõik person kus linn on Gotham või New York ja vana suurem 40
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- võtab kolm esimest vana
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- võtab 50 protsenti esimest
 select top 50 percent * from Person
---?
+--näidata inimesi vanuse järgi järjestatuna
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+--lieab summarne vanus tabelist Person; cast - teiseldab int andmetüüpiks
 select sum(cast(Age as int)) from Person
 
---?
+--näidata isiku minimaalset vanust
 select min(cast(Age as int)) from Person
 
---?
+--näidata isiku maksimaalset vanust
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
@@ -178,7 +178,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--lisada väärtusi
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -213,12 +213,12 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---distinct näitab nimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
----?
+---lieab summarne salary tabelist Employees
 select sum(cast(Salary as int)) from Employees
----?
+---lieab minimalse salary tabelist Employees
 select min(cast(Salary as int)) from Employees
 
 
@@ -231,7 +231,7 @@ add DepartmentId
 int null
 
 
---?
+--tabeli Employees muutmine ja loomine column
 alter table Employees
 add MiddleName nvarchar(30)
 
