@@ -108,17 +108,18 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näitab inimesed vanusega 100 või 50 või 20 aastat vana
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- näitab, kellele linn algab n
 select * from Person where City like 'n%'
+-- nätab, kellele emailis on @-märg
 select * from Person where Email like '%@%'
 
--- ?
+-- nätab, kellele ei ole emailis @-märg
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
