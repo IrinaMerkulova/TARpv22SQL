@@ -25,11 +25,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- adding a foreign key
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- adding to the table of heroes
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -48,13 +48,14 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- drop constraint tblPerson_GenderId_FK
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
 -- ?
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
+
 -- lisame võõrvõtme uuesti
 alter table Person
 add constraint DF_Person_GenderId
@@ -125,7 +126,7 @@ select * from Person where Email not like '%@%'
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--näitab kõik nimed mis 
 select * from Person where Name like '[^WAS]%'
 --- ?
 select * from Person where (City = 'Gotham' or City = 'New York')
@@ -134,23 +135,23 @@ and Age >= 40
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- showing top 3 Age
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- showing top 50 
 select top 50 percent * from Person
---?
+-- 
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+--leiab summarne vanus tabelist Person
 select sum(cast(Age as int)) from Person
 
---?
+-- finding the minimum Age
 select min(cast(Age as int)) from Person
 
---?
+-- finding the maximum Age
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
@@ -160,6 +161,8 @@ select City, sum(cast(Age as int)) as TotalAge from Person group by City
 
 
 --- tund 3
+
+
 
 --- loome uued tabelid
 create table Department
@@ -173,13 +176,13 @@ DepartmentHead nvarchar(50)
 create table Employees
 (
 Id int primary key,
-Name nvarchar(50),
+FirstName nvarchar(50),
 Gender nvarchar(10),
 Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+-- adding characters
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -191,35 +194,35 @@ values (4, 'Other Deparment', 'Sydney', 'Cindrella')
 
 select * from Department
 
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (1, 'Tom', 'Male', 4000, 1)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (2, 'Pam', 'Female', 3000, 1)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (3, 'John', 'Male', 3500, 1)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (4, 'Sam', 'Male', 4500, 2)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (5, 'Todd', 'Male', 2800, 1)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (6, 'Ben', 'Male', 7000, 1)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (7, 'Sara', 'Female', 4800, 3)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (8, 'Valarie', 'Female', 5500, 1)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (9, 'James', 'Male', 6500, NULL)
-insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+insert into Employees (Id, FirstName, Gender, Salary, DepartmentId)
 values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
-select distinct Name, DepartmentId from Employees
+--- select distinct FirstName, DepartmentId
+select distinct FirstName, DepartmentId from Employees
 
----?
+--- finding the summ Salary
 select sum(cast(Salary as int)) from Employees
----?
+--- finding the minimum Salary
 select min(cast(Salary as int)) from Employees
 
 
@@ -232,7 +235,7 @@ add DepartmentId
 int null
 
 
---?
+-- alter Employees
 alter table Employees
 add MiddleName nvarchar(30)
 
