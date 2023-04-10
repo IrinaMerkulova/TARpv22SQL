@@ -4,7 +4,7 @@ create database Tarpv22
 --kustutab database
 DRop DataBASE Tarpv22
 
---loob uus tabel
+--tabellite gender ja person loomine
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -25,11 +25,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- tabeli muutmine - võõrvõtmw lisamine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- andmete lisamine
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -48,11 +48,12 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- piirangu lisamine CHECK - et vanus >0 ja <150
+---annsb vea sest vanus ei saa olla rohkem kui 160
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- 
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
@@ -61,7 +62,7 @@ add constraint DF_Person_GenderId
 default 3 for GenderId
 
 
----- 2 tund
+---- näitab Person tabeli sisu, kustutab id=8 ja jälle näitab tabeli sisu
 
 select * from Person
 select * from Gender
@@ -69,7 +70,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---lisamine uue tabeli age
 alter table Person
 add Age nvarchar(10)
 
@@ -85,7 +86,7 @@ add constraint CK_Person_Age check (Age > 0 and Age < 150)
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---?
+--kustutamine kirjutus kui id on 8
 select * from Person
 go
 delete from Person where Id = 8
@@ -96,7 +97,11 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+-- UPDATE
+UPDATE Person SET City='Gotham'
+Where id=1
+
+-- Valimine city "Gotham"
 select * from Person where City = 'Gotham'
 
 
@@ -104,13 +109,13 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näitab inimesed vanusega 100 või 50 või 20
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- 
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
@@ -121,7 +126,7 @@ select * from Person where Email not like '%@%'
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--näitab kõik nimed mis ei alga w või a või s"
 select * from Person where Name like '[^WAS]%'
 --- ?
 select * from Person where (City = 'Gotham' or City = 'New York')
@@ -130,7 +135,7 @@ and Age >= 40
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- võtab kolm esimest redi vanusel
 select * from Person
 select top 3 Age, Name from Person
 
@@ -140,10 +145,10 @@ select top 50 percent * from Person
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+--näitab minimaalne summ
 select sum(cast(Age as int)) from Person
 
---?
+--
 select min(cast(Age as int)) from Person
 
 --?
