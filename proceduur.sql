@@ -5,12 +5,12 @@ create procedure spGetEmployees
 as begin
 	select FirstName, Gender from Employees
 end
-
+---protseduuri kaivitamine
 spGetEmployees
 exec spGetEmployees
 execute spGetEmployees
 
---- 
+--- kusib gender and departamenID ning kuvab andmed tabelist
 create proc spGetEmployeesByGenderAndDepartment
 @Gender nvarchar(20),
 @DepartmentId int
