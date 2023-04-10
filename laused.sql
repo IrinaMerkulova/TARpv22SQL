@@ -85,7 +85,7 @@ add constraint CK_Person_Age check (Age > 0 and Age < 150)
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---Tabelist "Person" kustutamine, kus ld = 8
+--Tabelist "Person" kustutamine, kus ld = 8.
 select * from Person
 go
 delete from Person where Id = 8
