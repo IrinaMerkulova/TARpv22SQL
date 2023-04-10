@@ -81,7 +81,7 @@ where Id = 8
 --Pirangu lisamine check - et vanus >0 ja >150.
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
--- Annab vea, sest vanus ei saa olla rohkem 160.
+-- Annab vea, sest vanus ei saa olla rohkem 160,
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
