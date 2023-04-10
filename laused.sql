@@ -221,7 +221,7 @@ select distinct Name, DepartmentId from Employees
 
 --- leiab summarne salary tabelist Employees
 select sum(cast(Salary as int)) from Employees
----?
+--- leiab minimaalne salary tabelist Employees
 select min(cast(Salary as int)) from Employees
 
 
