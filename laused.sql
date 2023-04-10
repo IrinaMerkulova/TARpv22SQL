@@ -96,7 +96,11 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+---tabeli uuendamine
+update person set City='Gotham'
+where id=1
+
+-- näitab ainult Gotham elanikud
 select * from Person where City = 'Gotham'
 
 
