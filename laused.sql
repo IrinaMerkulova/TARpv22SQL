@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---lisades tabelile "Person" uue veeru. Veeru andmetüüpi muudeti
 alter table Person
 add Age nvarchar(10)
 
@@ -78,7 +78,7 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+--lisades kontrollpiirangu tabeli "Person" veerule "Vanus".
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
@@ -96,9 +96,12 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
-select * from Person where City = 'Gotham'
+--tabeli uuendamine
+update Person set City='Gotham'
+where id=1
 
+-- valitud "Gotham"
+select * from Person where City = 'Gotham'
 
 -- kõik, kes ei ela Gothamis
 select * from Person where City <> 'Gotham'
