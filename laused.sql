@@ -151,7 +151,7 @@ select sum(cast(Age as int)) from Person
 --leiab minimaselt vanus tabelist Person
 select min(cast(Age as int)) from Person
 
---?
+--leiab maksimaselt vanus tabelist Person
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
