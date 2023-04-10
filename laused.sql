@@ -220,7 +220,7 @@ select distinct Name, DepartmentId from Employees
 
 ---leiab summarne palk tabelist Employees
 select sum(cast(Salary as int)) from Employees
----?
+---leiab minimaselt palk tabelist Employees
 select min(cast(Salary as int)) from Employees
 
 
