@@ -34,7 +34,9 @@ as begin
 	select @EmployeeCount = count(Id) from Employees where Gender = @Gender
 end
 
--- ?
+-- prosteduuri käivitamine,
+--Juhul kui töötajate arv võrub null sest "is null"
+--Juhul kui ei võrdu null sest " is not null"
 declare @TotalCount int
 exec spGetEmployeeCountByGender 'Female', @TotalCount out
 if(@TotalCount = 0)
