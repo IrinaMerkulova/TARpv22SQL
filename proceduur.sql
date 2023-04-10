@@ -34,7 +34,7 @@ as begin
 	select @EmployeeCount = count(Id) from Employees where Gender = @Gender
 end
 
--- ?
+-- kutsub välja salvestatud protseduuri parameetriga 'Female' Seejärel kontrollib TotalCount väärtust ja prindib teate, mis näitab, kas väärtus on 0 või mitte
 declare @TotalCount int
 exec spGetEmployeeCountByGender 'Female', @TotalCount out
 if(@TotalCount = 0)
