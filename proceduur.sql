@@ -5,7 +5,7 @@ create procedure spGetEmployees
 as begin
 	select FirstName, Gender from Employees
 end
---protseduuri käivitamine
+--protseduuri käivitamine.
 spGetEmployees
 exec spGetEmployees
 execute spGetEmployees
