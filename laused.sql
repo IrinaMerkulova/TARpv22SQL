@@ -134,11 +134,11 @@ and Age >= 40
 -- Võtab kolm esimest rida
 select top 3 * from Person
 
---- Kuvab esimesed 3 inimest, kuvades vanuse ja nimed
+-- Kuvab esimesed 3 inimest, kuvades vanuse ja nimed
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+-- Näitab ridade ülemist poolt
 select top 50 percent * from Person
 --?
 select * from Person order by cast(Age as int)
