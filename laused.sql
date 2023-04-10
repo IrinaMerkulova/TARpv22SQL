@@ -75,10 +75,10 @@ add Age nvarchar(10)
 
 -- Uuendame andmeid id 8 järgi
 update Person
-set Age = 149
-where Id = 8
+set Age = 130
+where Id = 1
 
--- Tabelisse lisamine Person mõned valikud
+-- Valideerimise lisamine ja selle toimivuse kontrollimine
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
@@ -92,20 +92,24 @@ delete from Person where Id = 8
 go
 select * from Person
 
---- lisame veeru juurde
+--- Lisame veeru juurde
 alter table Person
 add City nvarchar(25)
 
--- ?
+-- UPDATE
+update Person set City='Gotham'
+WHERE id=4
+
+-- Näitab ainult neid kangelasi, kes on pärit Gothamist
 select * from Person where City = 'Gotham'
 
 
--- kõik, kes ei ela Gothamis
+-- Kõik, kes ei ela Gothamis
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
-select *from Person where Age = 100 or 
+-- Näitab ainult teatud vanuses kangelasi kahel viisil
+select * from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
