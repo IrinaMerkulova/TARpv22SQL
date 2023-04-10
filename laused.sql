@@ -96,7 +96,11 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+--tabeli uuendamine
+update Person SET City ='Gotham'
+WHERE id = 1
+
+-- Näitab ainult linna nimega Gotham
 select * from Person where City = 'Gotham'
 
 
@@ -104,8 +108,8 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
-select *from Person where Age = 100 or 
+-- 
+select * from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
