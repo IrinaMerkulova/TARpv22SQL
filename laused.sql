@@ -217,9 +217,9 @@ select * from Employees
 ---näitab töötajaid ja nende osakonda
 select distinct Name, DepartmentId from Employees
 
----?
+---näitab palgasummat
 select sum(cast(Salary as int)) from Employees
----?
+---näitab palgasummat
 select min(cast(Salary as int)) from Employees
 
 
@@ -232,12 +232,15 @@ add DepartmentId
 int null
 
 
---?
+--lisa uks kirje
 alter table Employees
 add MiddleName nvarchar(30)
 
 alter table Employees
 add LastName nvarchar(30)
+
+alter table Employees
+add FirstName nvarchar(30)
 
 update Employees set FirstName = 'Tom', MiddleName = 'Nick', LastName = 'Jones'
 where Id = 1
