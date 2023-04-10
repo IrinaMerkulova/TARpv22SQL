@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+--- lisa uus veerg
 alter table Person
 add Age nvarchar(10)
 
@@ -78,14 +78,14 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+--Piirang määrab, et veerg "Age" peab olema suurem kui 0 ja väiksem kui 150.
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
 insert into Person (Id, Name, Email, GenderId, Age)
-values (9, 'Test', 'Test', 2, 160)
+values (9, 'Test', 'Test', 2, 110)
 
---?
+--näitab Person tabeli sisu kustutab id=8 ja jäile sisu
 select * from Person
 go
 delete from Person where Id = 8
