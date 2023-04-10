@@ -75,15 +75,15 @@ add Age nvarchar(10)
 
 --uuendame andmeid
 update Person
-set Age = 149
-where Id = 8
+set Age = 20
+where Id = 6
 
 --Piirang määrab, et veerg "Age" peab olema suurem kui 0 ja väiksem kui 150.
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
 insert into Person (Id, Name, Email, GenderId, Age)
-values (9, 'Test', 'Test', 2, 110)
+values (9, 'Test', 'Test', 2, 160)
 
 --näitab Person tabeli sisu kustutab id=8 ja jäile sisu
 select * from Person
@@ -96,7 +96,11 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+---tabeli uuendamine
+update Person SET City='Tabeli uuendamine'
+where id=6
+
+-- naitab ainult ghotam elanikud
 select * from Person where City = 'Gotham'
 
 
@@ -104,17 +108,17 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näitab, et teatud vanuses inimesed
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- näitab inimesi, kelle linna nimes on N-täht või email nimes on @-märk
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- näitab inimesi, kellel on postkontor, millel ei ole varanduse nime @
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
