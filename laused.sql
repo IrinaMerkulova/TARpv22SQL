@@ -1,7 +1,7 @@
 -- db loomine
 create database Tarpv22
 
---?
+--kustutab db
 DRop DataBASE Tarpv22
 
 --?
