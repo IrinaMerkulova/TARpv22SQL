@@ -220,9 +220,9 @@ select * from Employees
 ---näitab nimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
----?
+---summarne salary tabelist Employees
 select sum(cast(Salary as int)) from Employees
----?
+---minimaalne salary tabelist Employees
 select min(cast(Salary as int)) from Employees
 
 
