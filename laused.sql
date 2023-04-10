@@ -76,7 +76,7 @@ add Age nvarchar(10)
 --uuendame andmeid
 update Person
 set Age = 149
-where Id = 8
+where Id = 3
 
 --piirangu lisamine CHECK et vanus >0 and <150
 alter table Person
@@ -128,14 +128,14 @@ select * from Person where Email like '_@_.com'
 
 --näitab kõik nimed mis ei alga w või a või s
 select * from Person where Name like '[^WAS]%'
---- näitab kõik person mis on "Gotham" või "New York" ja vana >40
+--- näitab kõik person mis on Gotham või New York ja vana >40
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- võtab kolm inimeste vanuse järgi top
 select * from Person
 select top 3 Age, Name from Person
 
