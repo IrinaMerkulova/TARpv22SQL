@@ -152,7 +152,7 @@ select sum(cast(Age as int)) from Person
 --näitab tabelis "Person" minimaalset väärtust, teisendades vanuse väärtuseks int
 select min(cast(Age as int)) from Person
 
---?
+--näitab tabelis "Person" maksimaalselt väärtust, teisendades vanuse väärtuseks int
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
@@ -181,7 +181,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--täidab välja Departament ja Employees
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -219,9 +219,9 @@ select * from Employees
 --- distinct näitab nimed ainult 1 kord,
 select distinct Name, DepartmentId from Employees
 
----?
+---näitab palgasummat
 select sum(cast(Salary as int)) from Employees
----?
+---näitab minimaalset väärtust
 select min(cast(Salary as int)) from Employees
 
 
