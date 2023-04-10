@@ -149,7 +149,7 @@ select * from Person order by Age
 -- leiab summarne vanus tabelist Person
 select sum(cast(Age as int)) from Person
 
--- 
+-- leiab minimaalne vanus tabelist Person
 select min(cast(Age as int)) from Person
 
 --?
