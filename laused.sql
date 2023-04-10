@@ -118,20 +118,20 @@ select * from Person where Age in (100, 50, 20)
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- Näitab kangelasi, milles kirjas pole @
 select * from Person where Email not like '%@%'
 
---- näitab, kelle on emailis ees ja peale @-märki
+--- Näitab, kelle on emailis ees ja peale @-märki
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+-- Näitab kõik read, mille väärtus veerus "Nimi" ei alga tähtedega W, A või S.
 select * from Person where Name like '[^WAS]%'
---- ?
+--- Näitab tegelasi, kes on pärit Gothamist ja New Yorgist ning kes on alla 40 aasta vanad
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
----võtab kolm esimest rida
+-- Võtab kolm esimest rida
 select top 3 * from Person
 
 --- ?
