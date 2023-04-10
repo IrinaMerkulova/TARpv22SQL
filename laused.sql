@@ -1,10 +1,10 @@
 -- db loomine
 create database Tarpv22
 
---?
-DRop DataBASE Tarpv22
+-- db kustutamine
+Drop DataBASE Tarpv22
 
---?
+--
 create table Gender
 (
 Id int NOT NULL primary key,
