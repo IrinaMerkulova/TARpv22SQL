@@ -241,7 +241,7 @@ add MiddleName nvarchar(30)
 alter table Employees
 add LastName nvarchar(30)
 
----Siseldamine andmed
+---Siseldamine andmed, vahetanud FirstName'st Name
 update Employees set Name = 'Tom', MiddleName = 'Nick', LastName = 'Jones'
 where Id = 1
 update Employees set Name = 'Pam', MiddleName = NULL, LastName = 'Anderson'
