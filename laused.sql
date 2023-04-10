@@ -216,7 +216,7 @@ select distinct Name, DepartmentId from Employees
 
 -- täidab päringu tabelis "Töötajad" ja arvutab kõigi töötajate kogupalga
 select sum(cast(Salary as int)) from Employees
----?
+-- Teostab päringu tabeli "Töötajad" vastu ja arvutab miinimumpalga
 select min(cast(Salary as int)) from Employees
 
 
