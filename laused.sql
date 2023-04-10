@@ -4,7 +4,7 @@ create database Tarpv22
 --kustutab DB
 DRop DataBASE Tarpv22
 
---?
+--tabelite Gender ja Pearson loomine
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -25,11 +25,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- tabeli muutmine - võõrvõtme lisamine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- lisades 7 väärtust Person tabelisse
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -48,11 +48,11 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- eemaldab võtme tabelis Person
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- lisatud uus kirje Gender tabelisse
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
@@ -69,7 +69,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---lisas uue veeru 'Age' Person tabelisse
 alter table Person
 add Age nvarchar(10)
 
@@ -78,14 +78,14 @@ update Person
 set Age = 149
 where Id = 8
 
---?
+--piirangu lisamine CHECK - et 150 < Age > 0
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
-
+-- annab vea, sest et vanus ei saa olla < 160
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---?
+--näitab Person tabeli sisu, kustutab id=8 ja jälle näitab tabeli sisu
 select * from Person
 go
 delete from Person where Id = 8
@@ -96,7 +96,11 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+---tabeli uuendamine, 
+update Person SET City='Gotham'
+WHERE id=6
+
+-- näitab ainult 'Gotham' elanikud
 select * from Person where City = 'Gotham'
 
 
