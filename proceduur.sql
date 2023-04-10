@@ -31,9 +31,12 @@ create proc spGetEmployeeCountByGender
 @Gender nvarchar(20),
 @EmployeeCount int output
 as begin
-	select @EmployeeCount = count(Id) from Employees where Gender = @Gender
+	DECLARE @EmployeeCount INT
+	EXEC spGetEmployeeCountByGender @Gender = 'Male', @EmployeeCount = @EmployeeCount OUTPUT
+	SELECT @EmployeeCount = COUNT(Id) FROM Employees WHERE Gender = @Gender
 end
 
+spGetEmployeeCountByGender
 -- kutsub välja salvestatud protseduuri parameetriga 'Female' Seejärel kontrollib TotalCount väärtust ja prindib teate, mis näitab, kas väärtus on 0 või mitte
 declare @TotalCount int
 exec spGetEmployeeCountByGender 'Female', @TotalCount out
@@ -67,7 +70,7 @@ as begin
 	select @Name = Name from employees where Id = @Id
 end
 
---?
+-- запускает процедуру и 
 declare @Name nvarchar(50)
 execute spGetNameById1 6, @Name output
 print 'Name of the employee = ' + @Name
