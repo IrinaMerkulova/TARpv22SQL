@@ -82,7 +82,7 @@ as begin
 	select FirstName from Employees where Id = @Id
 end
 
--- ?
+-- käivitame
 declare @EmployeeName nvarchar(50)
 exec @EmployeeName = spGetNameById3 1
 print 'Name of the employee = ' + @EmployeeName
