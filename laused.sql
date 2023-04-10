@@ -129,7 +129,7 @@ select * from Person where Email not like '%@%'
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+-- näitab kõik nimed mis ei alga W või A või S
 select * from Person where Name like '[^WAS]%'
 
 --- ?
