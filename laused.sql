@@ -78,7 +78,7 @@ update Person
 set Age = 149
 where Id = 8
 
---kontrolli lisamine
+--piirangu lisamine CHECK - et vanus >0 ja <150
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
@@ -96,6 +96,10 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
+--UPDATE
+update Person SET City='Natlan'
+WHERE id=6
+
 -- kõik, kes elavad Gothamis
 select * from Person where City = 'Gotham'
 
@@ -110,11 +114,11 @@ Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- näidata inimesi, kelle linn algab N-tähega
+--- näidata inimesi, kelle linn algab N-tähega. Näita inimesi, kelle e-kirjad sisaldavad @
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- Näita inimesi, kelle e-kirjad ei sisalda @
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
