@@ -141,7 +141,7 @@ select top 3 Age, Name from Person
 
 --- näitab poolt tabelist "Person".
 select top 50 percent * from Person
---?
+--sorteerib tabeli "Isik", kasutades konversiooni Age int ja lihtsalt tavalist sortimist
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
