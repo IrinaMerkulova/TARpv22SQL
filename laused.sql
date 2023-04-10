@@ -150,14 +150,10 @@ select sum(cast(Age as int)) from Person
 -- Valib minimaalse vanuse väärtuse
 select min(cast(Age as int)) from Person
 
--- Valib maksimaalse vanuse väärtuse
+-- Valib maksimaalse vanuse väärtuse ja rühmitab tabeli "Isik" read veeru "Linn" järgi, arvutab iga ridade rühma veeru "Vanus" väärtuste summa
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
-
-
-
-
 
 --- tund 3
 
