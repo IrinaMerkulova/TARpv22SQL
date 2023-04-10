@@ -217,7 +217,7 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----
+---distinct näitab bimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
 ---?
