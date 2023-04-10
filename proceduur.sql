@@ -19,6 +19,7 @@ as begin
 	and DepartmentId = @DepartmentId
 end
 
+
 --- kõik esimeses osakonnas meessoost töötavad isikud
 spGetEmployeesByGenderAndDepartment 'Male', 1
 
@@ -33,6 +34,9 @@ create proc spGetEmployeeCountByGender
 as begin
 	select @EmployeeCount = count(Id) from Employees where Gender = @Gender
 end
+spGetEmployeeCountByGender @EmplooyeeCount=1, @Gender ='Male'
+spGetEmployeeCountByGender 'Male', 3
+---Protseduuri käivitamine
 
 -- ?
 declare @TotalCount int
