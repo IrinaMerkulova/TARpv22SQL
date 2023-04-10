@@ -4,7 +4,7 @@ create database Tarpv22
 -- db kustutamine
 Drop DataBASE Tarpv22
 
---
+-- tabelite Gender ja Person loomine
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -25,7 +25,7 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- alter tabeli Person foreign key loomine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
