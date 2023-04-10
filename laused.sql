@@ -1,10 +1,10 @@
 -- db loomine
 create database Tarpv22
 
---?
+--kustutab database
 DRop DataBASE Tarpv22
 
---?
+--loob uus tabel
 create table Gender
 (
 Id int NOT NULL primary key,
