@@ -214,7 +214,7 @@ select * from Employees
 -- Operaatorit "DISTINCT" kasutatakse dubleerivate ridade eemaldamiseks päringu tulemusest
 select distinct Name, DepartmentId from Employees
 
----?
+-- täidab päringu tabelis "Töötajad" ja arvutab kõigi töötajate kogupalga
 select sum(cast(Salary as int)) from Employees
 ---?
 select min(cast(Salary as int)) from Employees
