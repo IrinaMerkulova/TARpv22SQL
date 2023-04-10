@@ -26,7 +26,7 @@ spGetEmployeesByGenderAndDepartment @DepartmentId =  1, @Gender = 'Male'
 
 
 
---?
+-- Filtreerib tabeli "Töötajad", arvutab kriteeriumidele vastavate kirjete arvu ja kirjutab selle muutujasse EmployeeCount, mis on protseduuri väljundparameeter.
 create proc spGetEmployeeCountByGender
 @Gender nvarchar(20),
 @EmployeeCount int output
