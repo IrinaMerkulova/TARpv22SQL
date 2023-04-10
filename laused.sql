@@ -222,7 +222,7 @@ select distinct Name, DepartmentId from Employees
 
 ---võtab palga kokku
 select sum(cast(Salary as int)) from Employees
----?
+---näitab miinimumpalka
 select min(cast(Salary as int)) from Employees
 
 
