@@ -182,7 +182,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+--väärtuste lisamine 'Department' ja 'Employees' tabelis
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
@@ -217,55 +217,58 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+--- distinct näitab nimed ainult 1 kord
 select distinct Name, DepartmentId from Employees
 
----?
+-- cast - teiseldab int andmetüüpiks
+-- näitab kokku 'Salary' võtta
 select sum(cast(Salary as int)) from Employees
----?
+-- näitab minimaalse 'Salary'
 select min(cast(Salary as int)) from Employees
 
 
 alter table Employees
 add City nvarchar(25)
 
-
+-- viga, sest et tabelis 'Employees' on 'DepartmentId' ja seda ei ole vaja lisama
 alter table Employees
 add DepartmentId
 int null
 
 
---?
+-- lisab tabelis 'Employees' uus tähendus 'MiddleName' ja 'LastName'
 alter table Employees
 add MiddleName nvarchar(30)
 
 alter table Employees
 add LastName nvarchar(30)
 
-update Employees set FirstName = 'Tom', MiddleName = 'Nick', LastName = 'Jones'
+
+--parandatud --- kuna tabelil on teine ​​nimi
+update Employees set Name = 'Tom', MiddleName = 'Nick', LastName = 'Jones'
 where Id = 1
-update Employees set FirstName = 'Pam', MiddleName = NULL, LastName = 'Anderson'
+update Employees set Name = 'Pam', MiddleName = NULL, LastName = 'Anderson'
 where Id = 2
-update Employees set FirstName = 'John', MiddleName = NULL, LastName = NULL
+update Employees set Name = 'John', MiddleName = NULL, LastName = NULL
 where Id = 3
-update Employees set FirstName = 'Sam', MiddleName = NULL, LastName = 'Smith'
+update Employees set Name = 'Sam', MiddleName = NULL, LastName = 'Smith'
 where Id = 4
-update Employees set FirstName = NULL, MiddleName = 'Todd', LastName = 'Someone'
+update Employees set Name = NULL, MiddleName = 'Todd', LastName = 'Someone'
 where Id = 5
-update Employees set FirstName = 'Ben', MiddleName = 'Ten', LastName = 'Sven'
+update Employees set Name = 'Ben', MiddleName = 'Ten', LastName = 'Sven'
 where Id = 6
-update Employees set FirstName = 'Sara', MiddleName = NULL, LastName = 'Connor'
+update Employees set Name = 'Sara', MiddleName = NULL, LastName = 'Connor'
 where Id = 7
-update Employees set FirstName = 'Valarie', MiddleName = 'Balerine', LastName = NULL
+update Employees set Name = 'Valarie', MiddleName = 'Balerine', LastName = NULL
 where Id = 8
-update Employees set FirstName = 'James', MiddleName = '007', LastName = 'Bond'
+update Employees set Name = 'James', MiddleName = '007', LastName = 'Bond'
 where Id = 9
-update Employees set FirstName = NULL, MiddleName = NULL, LastName = 'Crowe'
+update Employees set Name = NULL, MiddleName = NULL, LastName = 'Crowe'
 where Id = 10
 
 
 --- igast reast võtab esimeses veerus täidetud lahtri ja kuvab ainult seda
-select Id, coalesce(FirstName, MiddleName, LastName) as Name
+select Id, coalesce(Name, MiddleName, LastName) as Name
 from Employees
 
 select * from Employees
