@@ -229,9 +229,12 @@ add DepartmentId
 int null
 
 
---?
+-- Lisab 3 uut veergu ja täidab need
 alter table Employees
 add MiddleName nvarchar(30)
+
+alter table Employees
+add FirstName nvarchar(30)
 
 alter table Employees
 add LastName nvarchar(30)
