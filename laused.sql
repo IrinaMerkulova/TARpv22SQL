@@ -210,7 +210,7 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+-- See käsk teeb päringu tabelist "Töötajad" ja tagastab unikaalsed veeru "Name" ja "DepartmentId" väärtuste paarid.
 select distinct Name, DepartmentId from Employees
 
 ---?
