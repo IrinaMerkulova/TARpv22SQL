@@ -25,11 +25,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- ?
+--- tabeli muutminevõõtvõme lisamine
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- ridade lisamine tabelisse
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -48,11 +48,11 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- kustutada veerg
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- lisa uks kirje
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
@@ -85,7 +85,7 @@ add constraint CK_Person_Age check (Age > 0 and Age < 150)
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
---?
+--näitab Person tabeli sisu, kustutab id=8 ja jälle tabeli sisu
 select * from Person
 go
 delete from Person where Id = 8
