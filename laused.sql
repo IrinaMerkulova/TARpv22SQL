@@ -97,8 +97,8 @@ alter table Person
 add City nvarchar(25)
 
 --tabeli uuendamine
-update Person SET City ='Tartu'
-WHERE id = 3
+update Person SET City ='Paldiski'
+WHERE id = 9
 select * from Person
 
 -- Näitab ainult linna nimega Gotham
@@ -109,13 +109,13 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- 
+-- näitab inimesed vanusega 100 või 50 või 20 
 select * from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- Linnad ja e-kirjad, mis algavad...
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
