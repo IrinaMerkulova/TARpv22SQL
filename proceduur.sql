@@ -52,7 +52,7 @@ declare @TotalCount int
 exec spGetEmployeeCountByGender @EmployeeCount=1 @TotalCount=out, @Gender = 'Male';
 print @TotalCount
 
----arvutab töötajate arv ja annab nime @totalcount
+---arvutab töötajate arv ja annab nime totalcount
 create proc spTotalCount2
 @TotalCount int output
 as begin
@@ -63,7 +63,7 @@ declare @TotalEmployees int
 execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
---- ?
+--- küsib ID, ja näitab Eesnimi ID järgi.
 create proc spGetNameById1
 @Id int,
 @FirstName nvarchar(50) output
